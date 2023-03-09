@@ -8,10 +8,11 @@
     <p id="error"></p>
     <script>
       var x = 21;
+
       try {
-        if (x > 20) throw "over 20";
-        if (x <= 10) throw "less than 11";
-      } catch (a) {
+        if (x > 20) document.write("over 20");
+        if (x <= 10) document.write("less than 11");
+      } catch (e) {
         document.getElementById("error").innerHTML = e.message;
       }
     </script>
