@@ -11,7 +11,7 @@
       if (x > 20) throw "over 20";
       if (x <= 10) throw "less than 11";
     } catch (a) {
-      message.innerHTML = e;
+      document.getElementById("error").innerHTML = e.message;
     }
   </script>
 </html>
