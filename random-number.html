@@ -5,29 +5,29 @@
     <title>Try Catch</title>
   </head>
   <body>
-    
+    <label for="inputDigit">Enter a digit: </label>
+    <input type="text" id="inputDigit" />
+
+    <button onclick="guessNumber()">Check</button>
+
+    <p id="outputDigit"></p>
   </body>
   <script>
     function guessNumber() {
-        const random = Math.floor(Math.random() * 100) + 1;
-        let number = parseInt(prompt('Guess a number from 1 to 10: '));
-    
-        // take the input until the guess is correct
-        while(number !== random) {
-            number = parseInt(prompt('Guess a number from 1 to 10: '));
-        }
-    
-        // check if the guess is correct
-        if(number == random) {
-            console.log('You guessed the correct number.');
-        }
-    
+      const random = Math.floor(Math.random() * 100) + 1;
+      let number = parseInt(prompt("Guess a number from 1 to 10: "));
+
+      guess = document.getElementById("inputDigit").value;
+
+      if (guess > random) {
+        document.getElementById("outputDigit").innerHTML = "Too high!";
+      } else if (guess < random) {
+        document.getElementById("outputDigit").innerHTML = "Too low!";
+      } else {
+        document.getElementById("outputDigit").innerHTML = "Correct!";
       }
-    </script>
+    }
+  </script>
 </html>
 
-
-
-
-// call the function
-guessNumber();
+// call the function guessNumber();
