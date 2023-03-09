@@ -6,14 +6,14 @@
   </head>
   <body>
     <p id="error"></p>
+    <script>
+      var x = 21;
+      try {
+        if (x > 20) throw "over 20";
+        if (x <= 10) throw "less than 11";
+      } catch (a) {
+        document.getElementById("error").innerHTML = e.message;
+      }
+    </script>
   </body>
-  <script>
-    var x = 21;
-    try {
-      if (x > 20) throw "over 20";
-      if (x <= 10) throw "less than 11";
-    } catch (a) {
-      document.getElementById("error").innerHTML = e.message;
-    }
-  </script>
 </html>
