@@ -6,15 +6,15 @@
   </head>
   <body>
     <p id="error"></p>
-    <script>
-      var x = 21;
-
-      try {
-        if (x > 20) document.write("over 20");
-        if (x <= 10) document.write("less than 11");
-      } catch (e) {
-        document.getElementById("error").innerHTML = e.message;
-      }
-    </script>
   </body>
+  <script>
+    var x = 21;
+
+    try {
+      if (x > 20) document.write("over 20");
+      if (x <= 10) document.write("less than 11");
+    } catch (e) {
+      document.getElementById("error").innerHTML = e.message;
+    }
+  </script>
 </html>
