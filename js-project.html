@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>Zoo</title>
+    <title>Animal Gallery</title>
+    <style>
+      /* Hide all images initially */
+      img {
+        display: none;
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <h1>Animal Gallery</h1>
+      <p>Click on the links to see the animals</p>
+    </header>
+    <section>
+      <a href="#" id="lion-link">Lion</a>
+      <a href="#" id="tiger-link">Tiger</a>
+      <a href="#" id="bear-link">Bear</a>
 
+      <img src="lion.jpg" id="lion-img" alt="Lion" />
+      <img src="tiger.jpg" id="tiger-img" alt="Tiger" />
+      <img src="bear.jpg" id="bear-img" alt="Bear" />
+    </section>
+
+    <script>
+      // Get the link elements
+      const lionLink = document.getElementById("lion-link");
+      const tigerLink = document.getElementById("tiger-link");
+      const bearLink = document.getElementById("bear-link");
+
+      // Get the image elements
+      const lionImg = document.getElementById("lion-img");
+      const tigerImg = document.getElementById("tiger-img");
+      const bearImg = document.getElementById("bear-img");
+
+      // Add event listeners to the link elements
+      lionLink.addEventListener("click", showImage);
+      tigerLink.addEventListener("click", showImage);
+      bearLink.addEventListener("click", showImage);
+
+      // Event listener function
+      function showImage(event) {
+        // Prevent the default link behavior
+        event.preventDefault();
+
+        // Get the ID of the clicked link
+        const linkId = event.target.id;
+
+        // Hide the currently displayed image
+        if (lionImg.style.display === "block") {
+          lionImg.style.display = "none";
+        }
+        if (tigerImg.style.display === "block") {
+          tigerImg.style.display = "none";
+        }
+        if (bearImg.style.display === "block") {
+          bearImg.style.display = "none";
+        }
+
+        // Show the corresponding image
+        if (linkId === "lion-link") {
+          lionImg.setAttribute("src", "lion.jpg");
+          lionImg.style.display = "block";
+        } else if (linkId === "tiger-link") {
+          tigerImg.setAttribute("src", "tiger.jpg");
+          tigerImg.style.display = "block";
+        } else if (linkId === "bear-link") {
+          bearImg.setAttribute("src", "bear.jpg");
+          bearImg.style.display = "block";
+        }
+      }
+    </script>
   </body>
-  <script>
-    
-  </script>
 </html>
