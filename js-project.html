@@ -62,36 +62,63 @@
         // Get the ID of the clicked link
         const linkId = event.target.id;
 
-        // Hide the currently displayed image
-        if (lionImg.style.display === "block") {
-          lionImg.style.display = "none";
-        }
-        if (tigerImg.style.display === "block") {
-          tigerImg.style.display = "none";
-        }
-        if (bearImg.style.display === "block") {
-          bearImg.style.display = "none";
+        // Check if the corresponding image is already displayed
+        let isDisplayed = false;
+        if (linkId === "lion-link" && lionImg.style.display === "block") {
+          isDisplayed = true;
+        } else if (
+          linkId === "tiger-link" &&
+          tigerImg.style.display === "block"
+        ) {
+          isDisplayed = true;
+        } else if (
+          linkId === "bear-link" &&
+          bearImg.style.display === "block"
+        ) {
+          isDisplayed = true;
         }
 
-        // Show the corresponding image
-        if (linkId === "lion-link") {
-          lionImg.setAttribute(
-            "src",
-            "https://thumbs.dreamstime.com/b/big-lion-lying-savannah-grass-landscape-characteristic-trees-plain-hills-background-35172905.jpg"
-          );
-          lionImg.style.display = "block";
-        } else if (linkId === "tiger-link") {
-          tigerImg.setAttribute(
-            "src",
-            "https://thumbs.dreamstime.com/b/tiger-portrait-horizontal-11392212.jpg"
-          );
-          tigerImg.style.display = "block";
-        } else if (linkId === "bear-link") {
-          bearImg.setAttribute(
-            "src",
-            "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
-          );
-          bearImg.style.display = "block";
+        // Hide the currently displayed image if the same link is clicked again
+        if (isDisplayed) {
+          if (linkId === "lion-link") {
+            lionImg.style.display = "none";
+          } else if (linkId === "tiger-link") {
+            tigerImg.style.display = "none";
+          } else if (linkId === "bear-link") {
+            bearImg.style.display = "none";
+          }
+        } else {
+          // Hide the currently displayed image
+          if (lionImg.style.display === "block") {
+            lionImg.style.display = "none";
+          }
+          if (tigerImg.style.display === "block") {
+            tigerImg.style.display = "none";
+          }
+          if (bearImg.style.display === "block") {
+            bearImg.style.display = "none";
+          }
+
+          // Show the corresponding image
+          if (linkId === "lion-link") {
+            lionImg.setAttribute(
+              "src",
+              "https://thumbs.dreamstime.com/b/big-lion-lying-savannah-grass-landscape-characteristic-trees-plain-hills-background-35172905.jpg"
+            );
+            lionImg.style.display = "block";
+          } else if (linkId === "tiger-link") {
+            tigerImg.setAttribute(
+              "src",
+              "https://thumbs.dreamstime.com/b/tiger-portrait-horizontal-11392212.jpg"
+            );
+            tigerImg.style.display = "block";
+          } else if (linkId === "bear-link") {
+            bearImg.setAttribute(
+              "src",
+              "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
+            );
+            bearImg.style.display = "block";
+          }
         }
       }
     </script>
