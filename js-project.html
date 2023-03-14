@@ -3,7 +3,6 @@
   <head>
     <title>Animal Gallery</title>
     <style>
-      /* Style the header */
       header {
         background-color: #333;
         color: #fff;
@@ -11,7 +10,6 @@
         text-align: center;
       }
 
-      /* Style the links */
       a {
         color: #333;
         display: inline-block;
@@ -28,7 +26,6 @@
         color: #fff;
       }
 
-      /* Style the section */
       section {
         display: flex;
         flex-wrap: wrap;
@@ -36,8 +33,6 @@
         margin-top: 20px;
       }
 
-      /* Hide the images in the beginning */
-      /* Style the images */
       img {
         display: none;
         max-width: 100%;
@@ -51,15 +46,12 @@
   <body>
     <header>
       <h1>Animal Gallery</h1>
-      <p>This is a HTML and JavaScript code for a simple animal gallery. The page displays three animal images (lion, tiger, and bear) and links to toggle the display of each image. When a link is clicked, the corresponding animal image is displayed or hidden, depending on its current state. The code uses event listeners to detect when a link is clicked and modify the display property of the corresponding image element.</p>
+      <p>Click on the links to see the animals</p>
     </header>
     <section>
-      <!-- Fake links to the animal images -->
-      <a href="#" id="lion-link">Lion</a>
-      <a href="#" id="tiger-link">Tiger</a>
-      <a href="#" id="bear-link">Bear</a>
-
-      <!-- Images of the animals -->
+      <a href="#" onclick="showImage('lion-img')">Lion</a>
+      <a href="#" onclick="showImage('tiger-img')">Tiger</a>
+      <a href="#" onclick="showImage('bear-img')">Bear</a>
       <img
         src="https://thumbs.dreamstime.com/b/big-lion-lying-savannah-grass-landscape-characteristic-trees-plain-hills-background-35172905.jpg"
         id="lion-img"
@@ -76,88 +68,17 @@
         alt="Bear"
       />
     </section>
-
     <script>
-      // Get the link elements
-      const lionLink = document.getElementById("lion-link");
-      const tigerLink = document.getElementById("tiger-link");
-      const bearLink = document.getElementById("bear-link");
-
-      // Get the image elements
-      const lionImg = document.getElementById("lion-img");
-      const tigerImg = document.getElementById("tiger-img");
-      const bearImg = document.getElementById("bear-img");
-
-      // Add event listeners to the link elements
-      lionLink.addEventListener("click", showImage);
-      tigerLink.addEventListener("click", showImage);
-      bearLink.addEventListener("click", showImage);
-
-      // Event listener function
-      function showImage(event) {
-        // Prevent the default link behavior
-        event.preventDefault();
-
-        // Get the ID of the clicked link
-        const linkId = event.target.id;
-
-        // Check if the corresponding image is already displayed
-        let isDisplayed = false;
-        if (linkId === "lion-link" && lionImg.style.display === "block") {
-          isDisplayed = true;
-        } else if (
-          linkId === "tiger-link" &&
-          tigerImg.style.display === "block"
-        ) {
-          isDisplayed = true;
-        } else if (
-          linkId === "bear-link" &&
-          bearImg.style.display === "block"
-        ) {
-          isDisplayed = true;
-        }
-
-        // Hide the currently displayed image if the same link is clicked again
-        if (isDisplayed) {
-          if (linkId === "lion-link") {
-            lionImg.style.display = "none";
-          } else if (linkId === "tiger-link") {
-            tigerImg.style.display = "none";
-          } else if (linkId === "bear-link") {
-            bearImg.style.display = "none";
-          }
+      function showImage(imgId) {
+        const img = document.getElementById(imgId);
+        if (img.style.display === "block") {
+          img.style.display = "none";
         } else {
-          // Hide the currently displayed image
-          if (lionImg.style.display === "block") {
-            lionImg.style.display = "none";
-          }
-          if (tigerImg.style.display === "block") {
-            tigerImg.style.display = "none";
-          }
-          if (bearImg.style.display === "block") {
-            bearImg.style.display = "none";
-          }
-
-          // Show the corresponding image
-          if (linkId === "lion-link") {
-            lionImg.setAttribute(
-              "src",
-              "https://thumbs.dreamstime.com/b/big-lion-lying-savannah-grass-landscape-characteristic-trees-plain-hills-background-35172905.jpg"
-            );
-            lionImg.style.display = "block";
-          } else if (linkId === "tiger-link") {
-            tigerImg.setAttribute(
-              "src",
-              "https://thumbs.dreamstime.com/b/tiger-portrait-horizontal-11392212.jpg"
-            );
-            tigerImg.style.display = "block";
-          } else if (linkId === "bear-link") {
-            bearImg.setAttribute(
-              "src",
-              "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
-            );
-            bearImg.style.display = "block";
-          }
+          document
+            .querySelectorAll("img")
+            .forEach((i) => (i.style.display = "none"));
+          img.setAttribute("src", img.getAttribute("src"));
+          img.style.display = "block";
         }
       }
     </script>
